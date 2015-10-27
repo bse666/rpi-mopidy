@@ -5,7 +5,7 @@
 # original maintainer: Werner Beroux <werner@beroux.com>
 
 FROM resin/rpi-raspbian:jessie
-MAINTAINER Sven Behrend <bse666@gmail.com>
+MAINTAINER Sven Behrend
 
 # Official Mopidy install for Debian/Ubuntu along with some extensions
 # (see https://docs.mopidy.com/en/latest/installation/debian/ )
