@@ -9,6 +9,9 @@ services:
 # - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
 # - chmod +x docker-compose
 # - sudo mv docker-compose /usr/local/bin
+before_script:
+  - sudo apt-get --yes --no-install-recommends install binfmt-support qemu-user-static
+  - echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' | sudo tee -a /proc/sys/fs/binfmt_misc/register
 
 script:
   - docker build -t bse666/rpi-mopidy .
