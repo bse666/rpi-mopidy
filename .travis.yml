@@ -15,7 +15,7 @@ before_script:
 
 script:
   - docker build -t bse666/rpi-mopidy .
-  - docker run bse666/rpi-mopidy
+  - docker run -d bse666/rpi-mopidy
   - docker ps -a
 
 notifications:
