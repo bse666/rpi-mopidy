@@ -11,8 +11,9 @@ services:
 # - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker build -t bse666/rpi-mopidy
+  - docker build -t bse666/rpi-mopidy .
   - docker run bse666/rpi-mopidy
+  - docker ps -a
 
 notifications:
   email: false
