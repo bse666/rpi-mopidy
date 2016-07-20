@@ -18,7 +18,7 @@ script:
   - docker build -t bse666/rpi-mopidy .
   - docker run --name mopidy -d bse666/rpi-mopidy
   - docker ps -a
-  - mpc -h `docker inspect mopidy | grep IPAddress | cut -d '"' -f 4` listall
+  #- mpc -h `docker inspect mopidy | grep IPAddress | cut -d '"' -f 4` listall
   
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
