@@ -1,5 +1,17 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
+inputs:
+  architecture:
+    description: 'Architecture type: armv6,armv7,aarch64,s390x,ppc64le'
+    required: false
+    default: 'arm64v8'
+  distribution:
+    description: 'OS distribution name: ubuntu16.04, ubuntu18.04, buster, stretch, jessie'
+    required: false
+    default: 'ubuntu:18.04'
+  run:
+    description: 'Command/s to execute'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
