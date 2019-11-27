@@ -12,13 +12,16 @@ jobs:
     - uses: actions/checkout@v1
     - name: Set up Docker Buildx
       id: buildx
-      uses: crazy-max/ghaction-docker-buildx@v1
+      uses: ./
       with:
         version: latest
     - name: Available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
       # --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x \
     - name: Run Buildx
-      run: docker buildx build 
-      args: --platform linux/arm/v6,linux/arm/v7,linux/arm64 --output "type=image,push=false" --file Dockerfile
+      run: |
+          docker buildx build \
+            --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x \
+            --output "type=image,push=false" \
+            --file ./test/Dockerfile ./test
            
