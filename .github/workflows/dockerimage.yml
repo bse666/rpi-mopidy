@@ -1,0 +1,26 @@
+name: Docker Image CI
+
+on: [push]
+inputs:
+  architecture:
+    description: 'Architecture type: armv6,armv7,aarch64,s390x,ppc64le'
+    required: false
+    default: 'arm64v8'
+  distribution:
+    description: 'OS distribution name: ubuntu16.04, ubuntu18.04, buster, stretch, jessie'
+    required: false
+    default: 'ubuntu:18.04'
+  run:
+    description: 'Command/s to execute'
+    required: true
+    
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
