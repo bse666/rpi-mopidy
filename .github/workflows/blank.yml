@@ -1,13 +1,5 @@
-name: CI
+name: 'Compile Test'
 
-on: [push]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - using: 'docker'
-      image: 'Dockerfile'
-      
+runs:
+  - using: 'docker'
+    image: 'Dockerfile'
