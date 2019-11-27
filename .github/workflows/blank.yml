@@ -1,0 +1,24 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: GitHub Action for Build
+      uses: buildtool/build-action@v1
+      with:
+        # specify Dockerfile to use
+        #dockerfile: # optional, default is Dockerfile
+        # docker build-args arguments
+        docker-build-args: # optional
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
