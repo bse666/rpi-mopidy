@@ -3,10 +3,10 @@ name: Docker Build and Push
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-push:
@@ -38,4 +38,4 @@ jobs:
         file: ./Dockerfile
         platforms: ${{ env.PLATFORMS }}
         push: true
-        tags: user/app:latest
+        tags: bse666/rpi-mopidy:latest
