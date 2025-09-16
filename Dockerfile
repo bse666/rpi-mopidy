@@ -9,10 +9,14 @@ MAINTAINER Sven Behrend
 
 # Official Mopidy install for Debian/Ubuntu along with some extensions
 # (see https://docs.mopidy.com/en/latest/installation/debian/ )
-ADD https://apt.mopidy.com/mopidy.gpg /tmp/mopidy.gpg
-ADD https://apt.mopidy.com/mopidy.list /etc/apt/sources.list.d/mopidy.list
+#ADD https://apt.mopidy.com/mopidy.gpg /tmp/mopidy.gpg
+#ADD https://apt.mopidy.com/mopidy.list /etc/apt/sources.list.d/mopidy.list
+RUN mkdir -p /etc/apt/keyrings
+RUN wget -q -O /etc/apt/keyrings/mopidy-archive-keyring.gpg \
+  https://apt.mopidy.com/mopidy.gpg
+RUN wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/bullseye.list
 
-RUN apt-key add /tmp/mopidy.gpg
+#RUN apt-key add /tmp/mopidy.gpg
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     mopidy \
