@@ -4,7 +4,7 @@
 # for now without pulseaudio.
 # original maintainer: Werner Beroux <werner@beroux.com>
 
-FROM linuxserver/docker-baseimage-alpine
+FROM lsiobase/ubuntu
 MAINTAINER Sven Behrend
 
 # Official Mopidy install for Debian/Ubuntu along with some extensions
