@@ -14,6 +14,8 @@ FROM lsiobase/debian:bullseye
 RUN mkdir -p /etc/apt/keyrings
 ADD https://apt.mopidy.com/mopidy.gpg /etc/apt/trusted.gpg.d/mopidy-archive-keyring.gpg
 ADD https://apt.mopidy.com/bullseye.list /etc/apt/sources.list.d/mopidy.list 
+RUN chown root:root /etc/apt/trusted.gpg.d/mopidy-archive-keyring.gpg
+RUN chmod 655 /etc/apt/trusted.gpg.d/mopidy-archive-keyring.gpg
 
 #RUN apt-key add /tmp/mopidy.gpg
 
