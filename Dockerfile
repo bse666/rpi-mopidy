@@ -5,7 +5,6 @@
 # original maintainer: Werner Beroux <werner@beroux.com>
 
 FROM lsiobase/debian:bullseye
-MAINTAINER Sven Behrend
 
 # Official Mopidy install for Debian/Ubuntu along with some extensions
 # (see https://docs.mopidy.com/en/latest/installation/debian/ )
@@ -13,7 +12,7 @@ MAINTAINER Sven Behrend
 #ADD https://apt.mopidy.com/mopidy.list /etc/apt/sources.list.d/mopidy.list
 
 RUN mkdir -p /etc/apt/keyrings
-ADD https://apt.mopidy.com/mopidy.gpg /etc/apt/keyrings/mopidy-archive-keyring.gpg
+ADD https://apt.mopidy.com/mopidy.gpg /etc/apt/trusted.gpg.d/mopidy-archive-keyring.gpg
 ADD https://apt.mopidy.com/bullseye.list /etc/apt/sources.list.d/mopidy.list 
 
 #RUN apt-key add /tmp/mopidy.gpg
